@@ -1,0 +1,100 @@
+* {
+    color: white;
+}
+
+h1 {
+    font-size: 40pt;
+    text-align: center;
+}
+
+h2 {
+    color: aliceblue;
+    font-size: 16pt;
+    font-weight: normal;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+caption {
+    color: aliceblue;
+}
+
+#vidaFundo {
+    background-color: rgba(220, 53, 70, 0.2);
+}
+
+#manaFundo {
+    background-color: rgb(13, 202, 240, 0.2);
+}
+
+#overflowPericias {
+    max-height: 280px;
+}
+
+#overflowPoderes {
+    max-height: 525px;
+}
+
+#overflowMagias {
+    max-height: 400px;
+}
+
+.bodyPadrao,
+.bellatoraBody,
+.salomaoBody {
+    background-color: #2b2b2b;
+}
+
+.padraoFundo,
+.bellatoraFundo,
+.salomaoFundo {
+    background-color: #201e1e;
+    border-radius: 10px;
+}
+
+.maraBody {
+    background-color: #000000;
+}
+
+.maraFundo {
+    background-color: #181818;
+    border-radius: 10px;
+}
+
+.thainahBody {
+    background-color: #330101;
+}
+
+.thainahFundo {
+    background-color: #6b0202;
+    border-radius: 10px;
+}
+
+.neridaBody {
+    background-color: #8f2259;
+}
+
+.neridaFundo {
+    background-color: #bb2570;
+    border-radius: 10px;
+}
+
+.galadrielBody {
+    background-color: #15643f;
+}
+
+.galadrielFundo {
+    background-color: #1d8653;
+    border-radius: 10px;
+}
+
+.krighorBody {
+    background-color: #135658;
+}
+
+.krighorFundo {
+    background-color: #1d8286;
+    border-radius: 10px;
+}
