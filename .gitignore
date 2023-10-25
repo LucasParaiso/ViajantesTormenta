@@ -15,3 +15,6 @@ yarn-error.log
 /.vscode
 deploy.txt
 .vercel
+bootstrap/cache/packages.php
+bootstrap/cache/services.php
+composer.lock
