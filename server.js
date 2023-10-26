@@ -1,25 +1,16 @@
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
+const socket_port = '3000'
 
 const io = require("socket.io")(server, {
     cors: { origin: "*" },
 });
 
 io.on('connection', (socket) => {
-    console.log('Connection');
-
     socket.on('sendChatToServer', (message) => {
-        console.log(message);
-
         io.sockets.emit('sendChatToClient', message);
-    })
-
-    socket.on('disconnect', (socket) => {
-        console.log('Disconnect');
     })
 })
 
-server.listen(3000, () => {
-    console.log("Server is Running");
-});
+server.listen(socket_port);

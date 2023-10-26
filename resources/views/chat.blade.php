@@ -79,8 +79,6 @@
 
     <script>
         $(document).ready(function() {
-            console.log("Pronto!");
-
             const target = document.querySelector('#chat-content-ul')
 
             const observer = new MutationObserver(function(mutations) {
@@ -90,16 +88,14 @@
                     const nameMessage = items[i].getElementsByTagName('p')[0].innerHTML;
                     const nameInput = $("#nameInput").html()
 
-                    console.log(nameInput, nameMessage);
-
                     if (nameMessage == nameInput) items[i].style.background = '#928787';
                     if (nameMessage != nameInput) items[i].style.background = '#c3c5c5';
                 }
             });
 
             observer.observe(target, {
-                attributes:    true,
-                childList:     true,
+                attributes: true,
+                childList: true,
                 characterData: true
             });
         });
@@ -112,15 +108,19 @@
             let chatInput = $('#chatInput');
 
             chatInput.keypress(function(e) {
-                const content = $(this).html()
+                let content = $(this).html()
                 const name = $("#nameInput").html()
 
-                const message = {
-                    name: name,
-                    content: content,
-                };
-
                 if (e.which === 13 && !e.shiftKey) {
+                    let contentSplited = content.split(" ")
+
+                    if (contentSplited[0] == '/r') content = rollDice(content)
+
+                    const message = {
+                        name: name,
+                        content: content,
+                    };
+
                     socket.emit('sendChatToServer', message);
                     chatInput.html('');
                     return false;
@@ -136,6 +136,59 @@
                 `)
             })
         })
+
+        function rollDice(content) {
+            const errorMessage = `Não foi possível executar o comando: ${content}`
+
+            try {
+                let contentSplited = content.split(" ")
+
+                if (contentSplited.length != 2 && contentSplited.length != 4) return errorMessage
+
+                // DADO
+                if (!contentSplited[1].includes('d')) return errorMessage
+
+                let comands = contentSplited[1].split('d')
+
+                if (comands[0] == '' || isNaN(comands[0])) return errorMessage
+                if (comands[1] == '' || isNaN(comands[1])) return errorMessage
+
+                let dices = []
+                for (let i = 0; i < comands[0]; i++) dices.push(Math.floor(Math.random() * ((comands[1] - 1) + 1) + 1));
+
+                let sumDices = 0
+                sumDices += parseInt(dices.reduce((partialSum, a) => partialSum + a, 0));
+
+                // MODIFICADOR
+                if (contentSplited.length > 2) {
+                    var modificador = contentSplited[3]
+
+                    if (isNaN(modificador)) return errorMessage
+
+                    if (contentSplited[2] == '+') sumDices += parseInt(modificador)
+                    else if (contentSplited[2] == '-') sumDices -= parseInt(modificador)
+                    else return errorMessage
+                }
+
+                // RESULTADO
+                content = `Rolou ${contentSplited[1]}${contentSplited[2]}${contentSplited[3]}: <strong>${sumDices}</strong> = [${ dices[0] }`
+
+                for (let i = 1; i < dices.length; i++) {
+                    content += `, ${dices[i]}`
+                }
+
+                content += ']'
+
+                if (contentSplited.length > 2) {
+                    content += ` ${contentSplited[2]} ${modificador}`
+                }
+
+                return content
+            } catch (error) {
+                console.log(error);
+                return errorMessage
+            }
+        }
     </script>
 </body>
 
