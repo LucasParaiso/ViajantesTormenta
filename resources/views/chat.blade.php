@@ -1,30 +1,3 @@
-{{--
-.chat-row {
-    margin: 50px;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-ul li {
-    padding: 8px;
-    margin-bottom: 20px;
-}
-
-#chatInput {
-    border: 1px solid #d3d3d3;
-    padding: 8px 10px;
-}
-
-#nameInput {
-    border: 1px solid darkgray;
-    padding: 8px 10px;
-}
---}}
-
 <nav class="navbar fixed-top">
     <div class="container-fluid">
         <ion-icon class="mt-2" size="large" name="dice-outline" data-bs-toggle="offcanvas"
@@ -161,8 +134,12 @@ ul li {
             }
 
             // RESULTADO
-            content =
-                `Rolou ${contentSplited[1]}${contentSplited[2]}${contentSplited[3]}: <strong>${sumDices}</strong> = [${ dices[0] }`
+            if (contentSplited.length > 2) {
+                content = `Rolou ${contentSplited[1]}${contentSplited[2]}${contentSplited[3]}: <strong>${sumDices}</strong> = [${ dices[0] }`
+            } else {
+                content = `Rolou ${contentSplited[1]}: <strong>${sumDices}</strong> = [${ dices[0] }`
+            }
+
 
             for (let i = 1; i < dices.length; i++) {
                 content += `, ${dices[i]}`
