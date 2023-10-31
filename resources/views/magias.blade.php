@@ -1,11 +1,11 @@
 <div class="col">
-    <div class='p-3 m-2 {{ strtolower(strtok($ficha->nome, ' ')) . 'Fundo' }} overflow-auto text-start' id="overflowMagias">
+    <div class='p-3 m-2 padraoFundo overflow-auto text-start' id="overflowMagias">
         <div class="d-flex justify-content-center p-3 mb-0" data-bs-toggle="modal" data-bs-target="#magiasModal">
             <h2 class="fs-2 mb-0">Magias</h2>
             <ion-icon name="add-outline" size="large"></ion-icon>
         </div>
 
-        @php 
+        @php
         $magias = ['1º Circulo', '2º Circulo', '3º Circulo', '4º Circulo', '5º Circulo'];
         @endphp
 
@@ -33,7 +33,7 @@
                             }
                         }
                         echo "<br>";
-                        @endphp    
+                        @endphp
 
                         @php
                         $paragrafos = strtok($magia->descricao, "\n");

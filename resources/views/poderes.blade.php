@@ -1,10 +1,10 @@
 <div class="col">
-    <div class='p-3 m-2 {{ strtolower(strtok($ficha->nome, ' ')) . 'Fundo' }} overflow-auto text-start' id="overflowPoderes">
+    <div class='p-3 m-2 padraoFundo overflow-auto text-start' id="overflowPoderes">
         <div class="d-flex justify-content-center p-3 mb-0" data-bs-toggle="modal" data-bs-target="#poderesModal">
             <h2 class="fs-2 mb-0">Poderes</h2>
             <ion-icon name="add-outline" size="large"></ion-icon>
         </div>
-        @php 
+        @php
         $poderes = ['Raca', 'Classe', 'Origem', 'Deus'];
         @endphp
 

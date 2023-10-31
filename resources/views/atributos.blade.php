@@ -1,5 +1,5 @@
 <div class="col">
-    <div class='p-1 m-2 {{ strtolower(strtok($ficha->nome, ' ')) . 'Fundo' }}'>
+    <div class='p-1 m-2 padraoFundo'>
         <!-- TITULO -->
         <div class="d-flex justify-content-center p-3">
             <h2 class="fs-2">Atributos</h2>

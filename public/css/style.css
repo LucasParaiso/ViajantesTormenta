@@ -1,3 +1,25 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #525152;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 15px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #525152;
+    border-radius: 10px;
+    border: 3px solid #2b2b2b;
+}
+
+.container::-webkit-scrollbar-thumb {
+    border: 3px solid #212529;
+}
+
 * {
     color: white;
 }
@@ -41,60 +63,45 @@ caption {
     max-height: 400px;
 }
 
-.bodyPadrao,
-.bellatoraBody,
-.salomaoBody {
+.bodyPadrao {
     background-color: #2b2b2b;
 }
 
-.padraoFundo,
-.bellatoraFundo,
-.salomaoFundo {
+.padraoFundo {
     background-color: #201e1e;
     border-radius: 10px;
 }
 
-.maraBody {
-    background-color: #000000;
+.offcanvas-body {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
-.maraFundo {
-    background-color: #181818;
-    border-radius: 10px;
+.chat-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
-.thainahBody {
-    background-color: #330101;
+#chatBox {
+    background-color: lightgray;
+    resize: none;
 }
 
-.thainahFundo {
-    background-color: #6b0202;
-    border-radius: 10px;
+.chat-content-name,
+.chat-content-message {
+    padding: 8px;
+    color: black;
+    text-align: start;
 }
 
-.neridaBody {
-    background-color: #8f2259;
+.chat-content-message > strong {
+    color: black;
 }
 
-.neridaFundo {
-    background-color: #bb2570;
-    border-radius: 10px;
-}
-
-.galadrielBody {
-    background-color: #15643f;
-}
-
-.galadrielFundo {
-    background-color: #1d8653;
-    border-radius: 10px;
-}
-
-.krighorBody {
-    background-color: #135658;
-}
-
-.krighorFundo {
-    background-color: #1d8286;
-    border-radius: 10px;
+.chat-content-name {
+    color: black;
+    font-weight: bold;
 }

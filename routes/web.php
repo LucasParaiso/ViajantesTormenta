@@ -52,5 +52,3 @@ Route::delete('/ficha/poder/{id}/{poder_id}', [PoderController::class, 'destroy'
 Route::post('/ficha/magia/{id}', [MagiaController::class, 'store']);
 Route::put('/ficha/magia/{id}/{magia_id}', [MagiaController::class, 'update']);
 Route::delete('/ficha/magia/{id}/{magia_id}', [MagiaController::class, 'destroy']);
-
-Route::get('/chat', [ChatController::class, 'index']);

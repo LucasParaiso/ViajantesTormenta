@@ -1,5 +1,5 @@
 <div class="col">
-    <div class='p-2 m-2 {{ strtolower(strtok($ficha->nome, ' ')) . 'Fundo' }} overflow-auto' id="overflowPericias">
+    <div class='p-2 m-2 padraoFundo overflow-auto' id="overflowPericias">
         <table class="table table-striped table-borderless">
             <thead>
                 <tr>
@@ -48,7 +48,7 @@
                         } else {
                             echo $resultado;
                         }
-                        
+
                         @endphp
                     </td>
                     <td>{{ $pericia->bonus }}</td>

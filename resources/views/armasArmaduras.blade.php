@@ -1,5 +1,5 @@
 <div class="col">
-    <div class='p-2 m-2 {{ strtolower(strtok($ficha->nome, ' ')) . 'Fundo' }}'>
+    <div class='p-2 m-2 padraoFundo'>
         <!-- ARMAS -->
         <table class="table mb-4">
             <div class="d-flex" data-bs-toggle="modal" data-bs-target="#armaModal">
@@ -57,13 +57,13 @@
                                     $resultado += 2;
                                 }
                             }
-                            
+
                             if ($resultado >= 0) {
                                 echo '+' . $resultado;
                             } else {
                                 echo $resultado;
                             }
-                            @endphp    
+                            @endphp
                         </div>
                     </td>
                     <td>
@@ -129,7 +129,7 @@
                     </td>
                     <td>
                         <div class="col">
-                            @if ($armadura->penalidade != 0) 
+                            @if ($armadura->penalidade != 0)
                             <p>{{ '-' . $armadura->penalidade }}</p>
                             @else
                             <p>{{ $armadura->penalidade }}</p>
